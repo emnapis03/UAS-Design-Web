@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
+
 require "koneksi.php";
 
 $mahasiswa = query("SELECT * FROM data_mahasiswa");
@@ -42,7 +48,7 @@ $mahasiswa = query("SELECT * FROM data_mahasiswa");
                 <td style="text-align: center;"><?php echo $row["hobi"] ?></td>
                 <td style="text-align: center;"><?php echo $row["ukm_diminati"] ?></td>
                 <td style="text-align: center;">
-                    <a href="">Edit</a>
+                    <a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a>
                     <a href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('yakin?');">Delete</a>
                 </td>
             </tr>
