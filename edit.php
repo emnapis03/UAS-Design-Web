@@ -1,20 +1,23 @@
 <?php
-// include 'koneksi.php';
+require "koneksi.php";
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "uasdesignweb";
+$id = $_GET["id"];
 
-// Create connection
-$conn = mysqli_connect($host, $username, $password, $database);
+$data = query("SELECT * FROM data_mahasiswa WHERE id = $id")[0];
 
+if (isset($_POST["submit"])) {
 
-$id = $_GET['id'];
-$query = "SELECT * FROM data_mahasiswa WHERE id=$id";
-$hasil = mysqli_query($conn, $query);
-$data = mysqli_fetch_assoc($hasil);
-
+    if (edit($_POST) > 0) {
+        echo "
+        <script>
+        alert('Berhasil Diubah');
+        document.location.href='indeks.php';
+        </script>
+        ";
+    } else {
+        "Gagal diubah";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +35,7 @@ $data = mysqli_fetch_assoc($hasil);
 <body>
     <div class="container">
         <div class="header">
-            <h1><b>Form Survey</b></h1>
+            <h1><b>Ubah Data </b></h1>
             <p>Form Survey Pengembangan Minat dan Bakat Mahasiswa</p>
             <div style="border: solid black 1px; width:fit-content; padding:2px; background-color:lightgray; border-radius:5px"
                 class="clock" id="DisplayClock" onload="showTime()">
@@ -43,37 +46,33 @@ $data = mysqli_fetch_assoc($hasil);
         <div class="content">
             <p>Isi data berikut untuk database kampus</p>
             <div class="form">
-                <form action="proses-edit.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                <form action="" method="POST">
+                    <input type="hidden" name="id" value="<?= $data["id"]; ?>">
                     <label for="nama">Nama</label> <br />
-                    <input type="text" name="nama" value="<?php echo $data['nama']; ?>" id="nama" /> <br />
+                    <input type="text" name="nama" placeholder="Masukkan Nama" required value="<?= $data["nama"]; ?>"
+                        id="nama" /> <br />
                     <label for="npm">NPM</label> <br />
-                    <input type="number" name="npm" value="<?php echo $data['npm']; ?>" id="npm" /> <br />
+                    <input type="number" name="npm" placeholder="Masukan NPM" id="npm" required
+                        value="<?= $data["npm"]; ?>" /> <br />
                     <label for="prodi">Prodi</label> <br />
-                    <input type="text" name="prodi" value="<?php echo $data['prodi']; ?>" id="prodi" /> <br />
+                    <input type="text" name="prodi" placeholder="Masukkan Prodi" id="prodi" required
+                        value="<?= $data["prodi"]; ?>" /> <br />
                     <label for="semester">Semester</label><br />
-                    <input type="number" name="semester" value="<?php echo $data['semester']; ?>" id="semester" />
+                    <input type="number" name="semester" placeholder="Masukkan Semester Sekarang" id="semester" required
+                        value="<?= $data["semester"]; ?>" />
                     <br />
                     <label for="hobi">Hobi</label> <br />
-                    <input type="text" name="hobi" value="<?php echo $data['hobi']; ?>" id="hobi" /> <br />
-                    <select name="ukm_diminati" id="">
-                        <?php if ($data['ukm_diminati'] == "olahraga") : ?>
-                        <option value="olahraga" selected>Olahraga</option>
-                        <option value="beladiri">Bela Diri</option>
-                        <option value="robotik">Robotik</option>
-                        <?php elseif ($data['ukm_diminati'] == "beladiri") : ?>
-                        <option value="olahraga">Olahraga</option>
-                        <option value="beladiri" selected>Bela Diri</option>
-                        <option value="robotik">Robotik</option>
-                        <?php elseif ($data['ukm_diminati'] == "robotik") : ?>
+                    <input type="text" name="hobi" placeholder="Masukkan Hobi" id="hobi" required
+                        value="<?= $data["hobi"]; ?>" /> <br />
+                    <select name="ukm_diminati" id="" required value="<?= $data["ukm_diminati"]; ?>">
+                        <option value="seni">Pilih UKM yang diminati</option>
+                        <hr />
                         <option value="olahraga">Olahraga</option>
                         <option value="beladiri">Bela Diri</option>
-                        <option value="robotik" selected>Robotik</option>
-                        <?php endif ?>
+                        <option value="robotik">Robotik</option>
                     </select>
                     <br />
-                    <button type="submit" name="submit" value="Simpan">Save</button>
-                    <button type="reset" value="Batal" onclick="self.history.back();">Batal</button>
+                    <button type="submit" name="submit">Ubah Data</button>
                 </form>
             </div>
         </div>

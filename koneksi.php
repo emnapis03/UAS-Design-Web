@@ -43,3 +43,29 @@ function hapus($id)
 
     return mysqli_affected_rows($conn);
 }
+
+function edit($data)
+{
+    global $conn;
+
+    $id = $data["id"];
+    $nama = htmlspecialchars($data["nama"]);
+    $npm = htmlspecialchars($data["npm"]);
+    $prodi = htmlspecialchars($data["prodi"]);
+    $semester = htmlspecialchars($data["semester"]);
+    $hobi = htmlspecialchars($data["hobi"]);
+    $ukm = htmlspecialchars($data["ukm_diminati"]);
+
+    $query = "UPDATE data_mahasiswa SET 
+    nama = '$nama',
+    npm = '$npm',
+    prodi = '$prodi',
+    semester = '$semester',
+    hobi = '$hobi',
+    ukm_diminati = '$ukm'
+    WHERE id = $id";
+    mysqli_query($conn, $query);
+
+
+    return mysqli_affected_rows($conn);
+}
