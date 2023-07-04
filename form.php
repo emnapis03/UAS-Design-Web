@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="stylee.css">
 
     <title>Form Survey</title>
 </head>
@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
         <div class="header">
             <h1><b>Form Survey</b></h1>
             <p>Form Survey Pengembangan Minat dan Bakat Mahasiswa</p>
-            <div style="border: solid black 1px; width:fit-content; padding:2px; background-color:lightgray; border-radius:5px"
+            <div style="border: solid black 1px; width:fit-content; padding: 3px; background-color:lightgray; border-radius:5px"
                 class="clock" id="DisplayClock" onload="showTime()">
                 <script type="text/javascript" src="jquery.js"></script>
             </div>
@@ -62,7 +62,7 @@ if (isset($_POST["submit"])) {
                         <option value="robotik">Robotik</option>
                     </select>
                     <br />
-                    <button type="submit" name="submit">Submit</button>
+                    <button class="button" type="submit" name="submit">Submit</button>
                 </form>
             </div>
         </div>
