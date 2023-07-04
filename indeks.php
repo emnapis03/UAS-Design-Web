@@ -1,13 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
+if (!isset($_SESSION['username'])) {
+    header('Location:login.php');
     exit();
 }
 
 require "koneksi.php";
 
-$mahasiswa = query("SELECT * FROM data_mahasiswa");
+$mahasiswa = query("SELECT * FROM data_mahasiswa ORDER by nama");
 
 ?>
 
