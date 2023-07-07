@@ -26,8 +26,8 @@ $mahasiswa = query("SELECT * FROM data_mahasiswa ORDER by nama");
     <div class="indeks">
         <h1>Data Mahasiswa</h1>
         <a href="login.php"><button class="logout">Logout</button></a>
-        <table border="1" cellpadding="10" cellspacing="0">
-            <tr>
+        <table style="box-shadow: 0px 5px 5px 0px black;" border="1" cellpadding="10" cellspacing="0">
+            <tr style="background-color:limegreen">
                 <th style="width: 2%;">No.</th>
                 <th style="width: 30%;">Nama</th>
                 <th style="width: 15%;">NPM</th>
