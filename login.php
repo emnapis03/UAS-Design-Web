@@ -1,10 +1,10 @@
 <?php
 include 'koneksi.php';
 
-// session_start();
-// if (isset($_SESSION['username'])) {
-//     header("Location: indeks.php");
-// }
+session_start();
+if (isset($_SESSION['username'])) {
+    header("Location: indeks.php");
+}
 if (isset($_POST['login'])) {
     // code...
     $username = $_POST['username'];
@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
         // code...
         $row = mysqli_fetch_assoc($result);
         $_SESSION['username'] = $row['username'];
-        header("Location:indeks.php");
+        header("Location: indeks.php");
     } else {
         // code...
         echo "<script>alert('Email atau password yang anda masukkan salah');</script>";
