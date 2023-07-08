@@ -18,16 +18,19 @@ $mahasiswa = query("SELECT * FROM data_mahasiswa ORDER by nama");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Admin</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="indeks">
-        <h1>Data Mahasiswa</h1>
-        <a href="logout.php"><button class="logout">Logout</button></a>
-        <table style="box-shadow: 0px 5px 5px 0px black;" border="1" cellpadding="10" cellspacing="0">
-            <tr style="background-color:limegreen">
+<body class="bg-secondary bg-gradient">
+    <div style="margin: 10px;">
+        <h1 class="text-center">Data Mahasiswa</h1>
+        <a href="logout.php"><button class="btn btn-danger p-2 g-col-6">Logout</button></a><br>
+        <table style="margin-top: 20px;" class="table" border="1" cellpadding="10" cellspacing="0">
+            <thead class="table-light">
+                <!-- <tr> -->
                 <th style="width: 2%;">No.</th>
                 <th style="width: 30%;">Nama</th>
                 <th style="width: 15%;">NPM</th>
@@ -36,10 +39,12 @@ $mahasiswa = query("SELECT * FROM data_mahasiswa ORDER by nama");
                 <th style="width: 10%;">Hobi</th>
                 <th style="width: 10%;">UKM yang diminati</th>
                 <th style="width: 8%">Aksi</th>
-            </tr>
+                <!-- </tr> -->
+            </thead>
             <?php $i = 1; ?>
             <?php foreach ($mahasiswa as $row) : ?>
-            <tr>
+            <tbody class="table-dark">
+                <!-- <tr> -->
                 <td style="text-align: center;"><?php echo $i; ?></td>
                 <td><?php echo $row["nama"]; ?></td>
                 <td style="text-align: center;"><?php echo $row["npm"]; ?></td>
@@ -51,11 +56,15 @@ $mahasiswa = query("SELECT * FROM data_mahasiswa ORDER by nama");
                     <a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a>
                     <a href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('yakin?');">Delete</a>
                 </td>
-            </tr>
+                <!-- </tr> -->
+            </tbody>
             <?php $i++; ?>
             <?php endforeach ?>
         </table>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

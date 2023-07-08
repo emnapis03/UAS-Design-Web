@@ -28,8 +28,10 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-    <title>Form Survey</title>
+    <title>Ubah Data</title>
 </head>
 
 <body>
@@ -47,22 +49,22 @@ if (isset($_POST["submit"])) {
             <p>Isi data berikut untuk database kampus</p>
             <div class="form">
                 <form action="" method="POST">
-                    <input type="hidden" name="id" value="<?= $data["id"]; ?>">
+                    <input class="form-label" type="hidden" name="id" value="<?= $data["id"]; ?>">
                     <label for="nama">Nama</label> <br />
-                    <input type="text" name="nama" placeholder="Masukkan Nama" required value="<?= $data["nama"]; ?>"
-                        id="nama" /> <br />
-                    <label for="npm">NPM</label> <br />
-                    <input type="number" name="npm" placeholder="Masukan NPM" id="npm" required
+                    <input class="form-control" type="text" name="nama" placeholder="Masukkan Nama" required
+                        value="<?= $data["nama"]; ?>" id="nama" /> <br />
+                    <label class="form-label" for="npm">NPM</label> <br />
+                    <input class="form-control" type="number" name="npm" placeholder="Masukan NPM" id="npm" required
                         value="<?= $data["npm"]; ?>" /> <br />
-                    <label for="prodi">Prodi</label> <br />
-                    <input type="text" name="prodi" placeholder="Masukkan Prodi" id="prodi" required
-                        value="<?= $data["prodi"]; ?>" /> <br />
-                    <label for="semester">Semester</label><br />
-                    <input type="number" name="semester" placeholder="Masukkan Semester Sekarang" id="semester" required
-                        value="<?= $data["semester"]; ?>" />
+                    <label class="form-label" for="prodi">Prodi</label> <br />
+                    <input class="form-control" type="text" name="prodi" placeholder="Masukkan Prodi" id="prodi"
+                        required value="<?= $data["prodi"]; ?>" /> <br />
+                    <label class="form-label" for="semester">Semester</label><br />
+                    <input class="form-control" type="number" name="semester" placeholder="Masukkan Semester Sekarang"
+                        id="semester" required value="<?= $data["semester"]; ?>" />
                     <br />
-                    <label for="hobi">Hobi</label> <br />
-                    <input type="text" name="hobi" placeholder="Masukkan Hobi" id="hobi" required
+                    <label class="form-label" for="hobi">Hobi</label> <br />
+                    <input class="form-control" type="text" name="hobi" placeholder="Masukkan Hobi" id="hobi" required
                         value="<?= $data["hobi"]; ?>" /> <br />
                     <select name="ukm_diminati" id="" required value="<?= $data["ukm_diminati"]; ?>">
                         <option value="seni">Pilih UKM yang diminati</option>
@@ -72,7 +74,8 @@ if (isset($_POST["submit"])) {
                         <option value="robotik">Robotik</option>
                     </select>
                     <br />
-                    <button type="submit" name="submit">Ubah Data</button>
+                    <button style="margin-top: 10px;" class="btn btn-primary" type="submit" name="submit">Ubah
+                        Data</button>
                 </form>
             </div>
         </div>
