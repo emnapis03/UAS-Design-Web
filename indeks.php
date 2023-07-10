@@ -33,12 +33,12 @@ $mahasiswa = query("SELECT * FROM data_mahasiswa ORDER by nama");
                 <!-- <tr> -->
                 <th style="width: 2%;">No.</th>
                 <th style="width: 30%;">Nama</th>
-                <th style="width: 15%;">NPM</th>
-                <th style="width: 15%;">Prodi</th>
-                <th style="width: 10%;">Semester</th>
-                <th style="width: 10%;">Hobi</th>
-                <th style="width: 10%;">UKM yang diminati</th>
-                <th style="width: 8%">Aksi</th>
+                <th style="text-align: center; width: 15%;">NPM</th>
+                <th style="text-align: center;width: 15%;">Prodi</th>
+                <th style="text-align: center;width: 10%;">Semester</th>
+                <th style="text-align: center; width: 10%;">Hobi</th>
+                <th style="text-align: center;width: 10%;">UKM yang diminati</th>
+                <th style="text-align: center;width: 8%">Aksi</th>
                 <!-- </tr> -->
             </thead>
             <?php $i = 1; ?>
