@@ -44,16 +44,21 @@ if (isset($_POST["submit"])) {
             <div class="form">
                 <form action="" method="POST">
                     <label for="nama">Nama</label> <br />
-                    <input type="text" name="nama" placeholder="Masukkan Nama" id="nama" /> <br />
+                    <input type="text" name="nama" placeholder="Masukkan Nama" id="nama"
+                        onkeypress="return harusHuruf(event)" /> <br />
                     <label for="npm">NPM</label> <br />
-                    <input type="number" name="npm" placeholder="Masukan NPM" id="npm" /> <br />
+                    <input type="text" name="npm" placeholder="Masukan NPM" id="npm"
+                        onkeypress="return hanyaAngka(event)" /> <br />
                     <label for="prodi">Prodi</label> <br />
-                    <input type="text" name="prodi" placeholder="Masukkan Prodi" id="prodi" /> <br />
+                    <input type="text" name="prodi" placeholder="Masukkan Prodi" id="prodi"
+                        onkeypress="return harusHuruf(event)" /> <br />
                     <label for="semester">Semester</label><br />
-                    <input type="number" name="semester" placeholder="Masukkan Semester Sekarang" id="semester" />
+                    <input type="number" max="12" min="1" name="semester" placeholder="Masukkan Semester Sekarang"
+                        id="semester" />
                     <br />
                     <label for="hobi">Hobi</label> <br />
-                    <input type="text" name="hobi" placeholder="Masukkan Hobi" id="hobi" /> <br />
+                    <input type="text" name="hobi" placeholder="Masukkan Hobi" id="hobi"
+                        onkeypress="return harusHuruf(event)" /> <br />
                     <select name="ukm_diminati" id="">
                         <option value="seni">Pilih UKM yang diminati</option>
                         <hr />
@@ -67,6 +72,22 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
     </div>
+
+    <script>
+    function harusHuruf(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && charCode > 32)
+            return false;
+        return true;
+    }
+
+    function hanyaAngka(event) {
+        var angka = (event.which) ? event.which : event.keyCode
+        if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+            return false;
+        return true;
+    }
+    </script>
 
 </body>
 

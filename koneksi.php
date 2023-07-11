@@ -69,3 +69,17 @@ function edit($data)
 
     return mysqli_affected_rows($conn);
 }
+
+function regis($data)
+{
+    global $conn;
+    $nama = htmlspecialchars($data["nama"]);
+    $username = htmlspecialchars($data["username"]);
+    $password = htmlspecialchars($data["password"]);
+
+    $query = ("INSERT INTO user VALUES('', '$nama', '$username', '$password') ");
+    mysqli_query($conn, $query);
+
+
+    return mysqli_affected_rows($conn);
+}
